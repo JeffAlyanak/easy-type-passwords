@@ -1,0 +1,116 @@
+	html, body, div, span, applet, object,
+	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+	pre, a, abbr, acronym, address, big, cite,
+	code, del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var, b,
+	u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+	form, label, legend, table, caption, tbody,
+	tfoot, thead, tr, th, td, article, aside,
+	canvas, details, embed, figure, figcaption,
+	footer, header, hgroup, menu, nav, output, ruby,
+	section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+
+	body {
+		line-height: 1;
+	}
+
+input{
+	text-align:center;
+	font-size: 0.95em;
+ }
+
+
+#wrapper {
+	text-align:center;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
+	-moz-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
+	-moz-flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-moz-perspective: 1000px;
+	-webkit-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+	position: relative;
+	min-height: 100%;
+}
+
+#snackbar {
+   visibility: hidden;
+   width: 100%;
+   min-width: 250px;
+   margin-left: 0px;
+   background-color: #fff;
+   color: #000;
+   text-align: center;
+   border-radius: 2px;
+   padding: 16px;
+   position: fixed;
+   z-index: 1;
+   left: 0%;
+   bottom: 30px;
+}
+
+#snackbar.show {
+   visibility: visible;
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+   from {bottom: 0; opacity: 0;}
+   to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+   from {bottom: 0; opacity: 0;}
+   to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+   from {bottom: 30px; opacity: 1;}
+   to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+   from {bottom: 30px; opacity: 1;}
+   to {bottom: 0; opacity: 0;}
+}
+
+input {
+	margin: 10px;
+	width: 500px;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.smallnote {
+  font-size: 0.75em;
+  font-style: italic;
+}
