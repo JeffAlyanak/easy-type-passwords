@@ -1,4 +1,5 @@
 <?php
+	define( 'ROOT_PATH', dirname(__DIR__) . "/src/" );
 	require_once "assets/php/class/get-parameters.php";
 	require_once "assets/php/class/password-generator.php";
 ?>

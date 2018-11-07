@@ -6990,7 +6990,6 @@ synthesis
 synthetic
 syrup
 system
-t
 tabasco
 tabby
 table

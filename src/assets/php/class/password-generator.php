@@ -1,6 +1,6 @@
 <?php
 
-require_once	"assets/php/class/wordlist-parser.php";
+require_once	"wordlist-parser.php";
 
 final class PasswordGenerator
 {
