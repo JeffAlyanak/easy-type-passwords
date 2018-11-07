@@ -1,8 +1,6 @@
 <?php
 
-	require_once	"assets/php/class/get-parameters.php";
-	include_once	"assets/php/parse.php";	// Reader & parser for wordlist.
-
+require_once	"assets/php/class/wordlist-parser.php";
 
 final class PasswordGenerator
 {
@@ -11,10 +9,7 @@ final class PasswordGenerator
 		$password	= '';
 
 		$parser	= new WordlistParser;
-		$params	= new GetParameters;
-
-		$words	= $params->numberOfWords();
-
+		
 		$edges	= $howManyWords + 1;								// Edges between words, ie, places to put numbers.
 		if ($howManyNumbers > $edges) $howManyNumbers = $edges;		// Limit numbers based on places to put them.
 
@@ -61,19 +56,5 @@ final class PasswordGenerator
 	}
 
 }
-
-	
-
-	// generatePassword(1, $words);
-
-
-
-
-
-	function generatePassword($howManyNumbers, $howManyWords)
-	{
-		
-		
-	}
 
 ?>

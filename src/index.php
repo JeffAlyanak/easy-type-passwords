@@ -1,3 +1,7 @@
+<?php
+	require_once "assets/php/class/get-parameters.php";
+	require_once "assets/php/class/password-generator.php";
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -17,13 +21,22 @@
 						
 				<form action="/passwords">
 					Words<br><span class="smallnote">(min 4, max 30)</span><br/>
-					<input type="number" name="words" value="<?php include "assets/php/return-num-of-words.php";?>" min="4" max="30">
+					<input type="number" name="words" value="<?php
+						$params	= new GetParameters;
+						echo	$params->numberOfWords();
+						
+						?>" min="4" max="30">
 					<br>
 				<input type="submit" value="Give Me Another!">
 				</form>
 	
 				<p>
-					<input type="text" onClick="this.select();" value="<?php include"assets/php/gen.php";?>" id="passwd"  class="passwd" readonly>
+					<input type="text" onClick="this.select();" value="<?php
+						$gen	= new PasswordGenerator;
+
+						echo $gen->generatePassword($params->numberOfWords(), 1);
+						
+					?>" id="passwd"  class="passwd" readonly>
 					<a href="#" onclick="copy();return false;"><i class="fa fa-clone" aria-hidden="true"></i><br/>Copy</a>
 				</p>
 				
