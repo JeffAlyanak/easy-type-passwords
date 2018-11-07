@@ -1,12 +1,27 @@
 <?php
 
-	$wordlist = "assets/words/words.txt";
+final class WordlistParser
+{
+	private $wordlist = "assets/words/words.txt";
 
-	function listLen()
+	public function ReturnWord($a): string
 	{
-		global $wordlist;
+		$list	= $this->wordlist;
+		$file   = fopen($list, "r") or die("Unable to open file!");
+		$words  = [];
 
-		$file   = fopen($wordlist, "r") or die("Unable to open file!");
+		while(!feof($file))
+		{
+			$words[]	= fgets($file);
+		}
+		fclose($file);
+		return	$this->removewhite($words[$a]);
+	}
+
+	public function ListLength(): int
+	{
+		$list	= $this->wordlist;
+		$file   = fopen($list, "r") or die("Unable to open file!");
 		$len    = 0;
 
 		while(!feof($file))
@@ -19,25 +34,11 @@
 		return $len;
 	}
 
-	function returnWord($a)
-	{
-		global $wordlist;
-		$file   = fopen($wordlist, "r") or die("Unable to open file!");
-		$words  = [];
-
-		while(!feof($file))
-		{
-			$words[]	= fgets($file);
-		}
-		fclose($file);
-
-		echo removewhite($words[$a]);
-	}
-
-	function removeWhite($str)
+	private function removeWhite($str)
 	{
 		return ucfirst(preg_replace('/\s+/', ' ', trim($str)));
 	}
+}
 
 ?>
 
