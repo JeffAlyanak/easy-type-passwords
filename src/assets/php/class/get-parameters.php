@@ -6,6 +6,11 @@ final class GetParameters
 	{
 		return	$_GET['words'] ?? "6";
 	}
+	
+	public function numberOfNumbers(): string
+	{
+		return	$_GET['numbers'] ?? "1";
+	}
 }
 
 ?>

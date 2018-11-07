@@ -21,13 +21,20 @@
 				<hr />
 						
 				<form action="/passwords">
-					Words<br><span class="smallnote">(min 4, max 30)</span><br/>
+					Words<br><span class="smallnote">(min = 4, max = 30)</span><br/>
 					<input type="number" name="words" value="<?php
 						$params	= new GetParameters;
 						echo	$params->numberOfWords();
 						
 						?>" min="4" max="30">
-					<br>
+					<br/>
+					Numbers<br><span class="smallnote">(min = 0, max = words + 1)</span><br/>
+				<input type="number" name="numbers" value="<?php
+					$params	= new GetParameters;
+					echo	$params->numberOfNumbers();
+					
+					?>" min="0" max="31">
+					<br/>
 				<input type="submit" value="Give Me Another!">
 				</form>
 	
@@ -35,7 +42,7 @@
 					<input type="text" onClick="this.select();" value="<?php
 						$gen	= new PasswordGenerator;
 
-						echo $gen->generatePassword($params->numberOfWords(), 1);
+						echo $gen->generatePassword( $params->numberOfWords(), $params->numberOfNumbers() );
 						
 					?>" id="passwd"  class="passwd" readonly>
 					<a href="#" onclick="copy();return false;"><i class="fa fa-clone" aria-hidden="true"></i><br/>Copy</a>
