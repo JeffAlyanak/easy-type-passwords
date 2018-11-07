@@ -2,7 +2,7 @@
 
 final class WordlistParser
 {
-	private $wordlist = "assets/words/words.txt";
+	private $wordlist = ROOT_PATH . "assets/words/words.txt";
 
 	public function ReturnWord($a): string
 	{
