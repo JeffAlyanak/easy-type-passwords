@@ -1,12 +1,11 @@
 <?php
 
-if (isset($_GET['words']))
+final class GetParameters
 {
-	echo $_GET['words'];
-}
-else
-{
-	echo "6";
+	public function numberOfWords(): string
+	{
+		return	$_GET['words'] ?? "6";
+	}
 }
 
 ?>
