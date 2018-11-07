@@ -55,5 +55,23 @@ final class PasswordGeneratorTest extends TestCase
 		}
 		return true;
 	}
+
+	public function testPasswordsWith3WordsAnd0Numbers(): bool
+	{
+		$gen		= new PasswordGenerator;
+
+		// Should limit numbers to edges.
+		$words		= 3;
+		$numbers	= 0;
+
+		for ($a = 0; $a < 100; $a++)
+		{
+			$this->assertRegExp(
+				'/^([A-Z])([a-z])+([A-Z])([a-z])+([A-Z])([a-z])+$/',
+				$gen->generatePassword($words,$numbers)
+			);
+		}
+		return true;
+	}
 }
 
