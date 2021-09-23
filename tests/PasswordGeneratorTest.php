@@ -50,7 +50,7 @@ final class PasswordGeneratorTest extends TestCase
 		for ($a = 0; $a < 100; $a++)
 		{
 			$this->assertRegExp(
-				'/^([0-9!\#]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,2})$/',
+				'/^([0-9\!\#]{0,3})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,3})([A-Z\!\#])([a-z\!\#])+([0-9\!\#]{0,3})$/',
 				$gen->generatePassword($words,$numbers,$special)
 			);
 		}
@@ -64,12 +64,12 @@ final class PasswordGeneratorTest extends TestCase
 		// Should limit numbers to edges.
 		$words		= 3;
 		$numbers	= 0;
-		$special	= 3;
+		$special	= "!#!";
 
 		for ($a = 0; $a < 100; $a++)
 		{
 			$this->assertRegExp(
-				'/^([A-Z\!\#])([a-z\!\#])+([A-Z\!\#])([a-z\!\#])+([A-Z\!\#])([a-z\!\#])+$/',
+				'/^([A-Z\!\#]){0,2}([a-z\!\#])+([A-Z\!\#]){0,2}([a-z\!\#])+([A-Z\!\#]){0,2}([a-z\!\#])+$/',
 				$gen->generatePassword($words,$numbers,$special)
 			);
 		}
