@@ -15,7 +15,7 @@ final class PasswordGeneratorTest extends TestCase
 		{
 			$this->assertRegExp(
 				'/^([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})$/',
-				$gen->generatePassword($words,$numbers)
+				$gen->generatePassword($words,$numbers,"")
 			);
 		}
 		return true;
@@ -32,43 +32,45 @@ final class PasswordGeneratorTest extends TestCase
 		{
 			$this->assertRegExp(
 				'/^([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})$/',
-				$gen->generatePassword($words,$numbers)
+				$gen->generatePassword($words,$numbers,"")
 			);
 		}
 		return true;
 	}
 
-	public function testPasswordsWith2WordsAnd6Numbers(): bool
+	public function testPasswordsWith2WordsAnd6NumbersAnd2Special(): bool
 	{
 		$gen		= new PasswordGenerator;
 
 		// Should limit numbers to edges.
 		$words		= 2;
 		$numbers	= 6;
+		$special	= "!#";
 
 		for ($a = 0; $a < 100; $a++)
 		{
 			$this->assertRegExp(
-				'/^([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})([A-Z])([a-z])+([0-9]{0,2})$/',
-				$gen->generatePassword($words,$numbers)
+				'/^([0-9\!\#]{0,3})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,3})([A-Z\!\#])([a-z\!\#])+([0-9\!\#]{0,3})$/',
+				$gen->generatePassword($words,$numbers,$special)
 			);
 		}
 		return true;
 	}
 
-	public function testPasswordsWith3WordsAnd0Numbers(): bool
+	public function testPasswordsWith3WordsAnd0NumbersAnd3Special(): bool
 	{
 		$gen		= new PasswordGenerator;
 
 		// Should limit numbers to edges.
 		$words		= 3;
 		$numbers	= 0;
+		$special	= "!#!";
 
 		for ($a = 0; $a < 100; $a++)
 		{
 			$this->assertRegExp(
-				'/^([A-Z])([a-z])+([A-Z])([a-z])+([A-Z])([a-z])+$/',
-				$gen->generatePassword($words,$numbers)
+				'/^([A-Z\!\#]){0,2}([a-z\!\#])+([A-Z\!\#]){0,2}([a-z\!\#])+([A-Z\!\#]){0,2}([a-z\!\#])+$/',
+				$gen->generatePassword($words,$numbers,$special)
 			);
 		}
 		return true;
