@@ -50,7 +50,7 @@ final class PasswordGeneratorTest extends TestCase
 		for ($a = 0; $a < 100; $a++)
 		{
 			$this->assertRegExp(
-				'/^([0-9]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9]{0,2})$/',
+				'/^([0-9!\#]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,2})([A-Z\!\#])([a-z\!\#])+([0-9!\#]{0,2})$/',
 				$gen->generatePassword($words,$numbers,$special)
 			);
 		}
