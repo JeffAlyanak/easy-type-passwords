@@ -18,3 +18,11 @@ The resulting password will include a random selection of words pulled randomly 
 It will not put two numbers or two special characters next to each other, so if you select a 'number of numbers' larger than there are word edges it will simply fill every word edge only once.
 
 Also of note, rather than using the php rand function, there is instead a wrapper function called `PasswordGenerator::randNum`. While the passwords returned should be sufficiently difficult to predict, you can always replace the simple rand call inside the wrapper with a more robust random number generator.
+
+## Testing
+
+Tested on:
+
+- php 7.3
+- php 7.4
+- php 8.0
