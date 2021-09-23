@@ -35,6 +35,13 @@
 					
 					?>" min="0" max="31">
 					<br/>
+					Special Characters<br><span class="smallnote">(each will be included once)</span><br/>
+				<input type="text" name="special" value="<?php
+					$params	= new GetParameters;
+					echo	$params->specialCharacters();
+					
+					?>">
+					<br/>
 				<input type="submit" value="Give Me Another!">
 				</form>
 	
@@ -42,7 +49,7 @@
 					<input type="text" onClick="this.select();" value="<?php
 						$gen	= new PasswordGenerator;
 
-						echo $gen->generatePassword( $params->numberOfWords(), $params->numberOfNumbers() );
+						echo $gen->generatePassword( $params->numberOfWords(), $params->numberOfNumbers(), $params->specialCharacters() );
 						
 					?>" id="passwd"  class="passwd" readonly>
 					<a href="#" onclick="copy();return false;"><i class="fa fa-clone" aria-hidden="true"></i><br/>Copy</a>

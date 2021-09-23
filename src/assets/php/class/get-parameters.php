@@ -11,6 +11,11 @@ final class GetParameters
 	{
 		return	$_GET['numbers'] ?? "1";
 	}
+
+	public function specialCharacters(): string
+	{
+		return	$_GET['special'] ?? "!";
+	}
 }
 
 ?>
